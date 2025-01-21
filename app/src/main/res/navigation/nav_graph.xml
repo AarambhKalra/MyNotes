@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="aarambh.apps.mynotes.fragment.HomeFragment"
-        android:label="HomeFragment">
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_addNoteFragment"
             app:destination="@id/addNoteFragment" />
@@ -18,7 +20,8 @@
     <fragment
         android:id="@+id/addNoteFragment"
         android:name="aarambh.apps.mynotes.fragment.AddNoteFragment"
-        android:label="AddNoteFragment">
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" >
         <action
             android:id="@+id/action_addNoteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -26,9 +29,15 @@
     <fragment
         android:id="@+id/editNoteFragment"
         android:name="aarambh.apps.mynotes.fragment.EditNoteFragment"
-        android:label="EditNoteFragment">
+        android:label="fragment_edit_note"
+        tools:layout="@layout/fragment_edit_note" >
         <action
             android:id="@+id/action_editNoteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <argument
+            android:name="note"
+            app:argType="aarambh.apps.mynotes.model.Note"
+            app:nullable="true" />
+
     </fragment>
 </navigation>
